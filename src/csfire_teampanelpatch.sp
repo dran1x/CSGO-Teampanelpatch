@@ -1,7 +1,6 @@
 #include <sourcemod>
 #include <sdktools>
 #include <sdkhooks>
-#include <csfire>
 
 #pragma semicolon 1
 #pragma newdecls required
@@ -38,4 +37,9 @@ public Action Event_OnPlayerSpawn(Event hEvent, const char[] name, bool bDontBro
     CancelCreatedEvent(TeamPanel);
     
     return Plugin_Changed;
+}
+
+public bool IsClientValid(int iClient) {
+
+    return (1 <= iClient <= MaxClients && IsClientInGame(iClient) && !IsFakeClient(iClient) && !IsClientSourceTV(iClient));
 }
