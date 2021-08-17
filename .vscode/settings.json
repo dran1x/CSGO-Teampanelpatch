@@ -1,4 +1,4 @@
 {
     "sourcepawn.outputDirectoryPath": "compiled/",
-    "sourcepawn.MainPath": "src\\csfire_teampanelpatch.sp"
+    "sourcepawn.MainPath": "src\\teampanelpatch.sp"
 }
