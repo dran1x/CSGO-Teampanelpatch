@@ -7,12 +7,12 @@
 
 public Plugin myinfo = {
 
-	name = "[CSFIRE.GG] Team Panel Patch",
-	author = "CSFIRE.GG - DEV TEAM",
+	name = "Team Panel Patch",
+	author = "DRANIX",
 	description = "patches a bug within team panel",
-	version = "1.0",
+	version = "1.1",
 	url = "https://csfire.gg/discord"
-};
+}
 
 public void OnPluginStart() {
 
@@ -29,7 +29,7 @@ public Action Event_OnPlayerSpawn(Event hEvent, const char[] name, bool bDontBro
     }
 
     hEvent.SetBool("silent", true);
-    SetEventBroadcast(hEvent, true);
+    hEvent.BroadcastDisabled = true;
         
     Event TeamPanel = CreateEvent("player_team");
     TeamPanel.SetInt("userid", GetClientUserId(iClient));
@@ -39,7 +39,7 @@ public Action Event_OnPlayerSpawn(Event hEvent, const char[] name, bool bDontBro
     return Plugin_Changed;
 }
 
-public bool IsClientValid(int iClient) {
+stock bool IsClientValid(int iClient) {
 
     return (1 <= iClient <= MaxClients && IsClientInGame(iClient) && !IsFakeClient(iClient) && !IsClientSourceTV(iClient));
 }
