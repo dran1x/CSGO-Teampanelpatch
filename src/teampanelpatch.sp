@@ -10,7 +10,7 @@ public Plugin myinfo =
 	name        = "Team Panel Patch",
 	author      = "DRANIX",
 	description = "patches a bug within team panel",
-	version     = "1.1",
+	version     = "1.2",
 	url         = "https://csfire.gg/discord"
 }
 
