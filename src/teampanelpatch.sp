@@ -10,7 +10,7 @@ public Plugin myinfo =
 	name        = "Team Panel Patch",
 	author      = "DRANIX",
 	description = "patches a bug within team panel",
-	version     = "1.2",
+	version     = "1.3",
 	url         = "https://csfire.gg/discord"
 }
 
@@ -23,7 +23,7 @@ public Action Event_OnPlayerSpawn(Event hEvent, const char[] name, bool bDontBro
 {
 	int iClient = GetClientOfUserId(hEvent.GetInt("userid"));
 
-	if (!IsClientInGame(iClient) || !IsFakeClient(iClient))
+	if (!IsClientInGame(iClient) || IsFakeClient(iClient))
 	{
 		return Plugin_Handled;
 	}
@@ -37,4 +37,9 @@ public Action Event_OnPlayerSpawn(Event hEvent, const char[] name, bool bDontBro
 	TeamPanel.Cancel();
 
 	return Plugin_Changed;
+}
+
+public void OnPluginEnd()
+{
+	UnhookEvent("player_spawn", Event_OnPlayerSpawn);
 }
