@@ -1,5 +1,3 @@
-#include <sdkhooks>
-#include <sdktools>
 #include <sourcemod>
 
 #pragma semicolon 1
@@ -10,8 +8,8 @@ public Plugin myinfo =
 	name        = "Team Panel Patch",
 	author      = "DRANIX",
 	description = "patches a bug within team panel",
-	version     = "1.3",
-	url         = "https://csfire.gg/discord"
+	version     = "1.4",
+	url         = "https://github.com/dran1x"
 }
 
 public void OnPluginStart()
@@ -23,10 +21,8 @@ public Action Event_OnPlayerSpawn(Event hEvent, const char[] name, bool bDontBro
 {
 	int iClient = GetClientOfUserId(hEvent.GetInt("userid"));
 
-	if (!IsClientInGame(iClient) || IsFakeClient(iClient))
-	{
+	if (IsFakeClient(iClient))
 		return Plugin_Handled;
-	}
 
 	hEvent.SetBool("silent", true);
 	hEvent.BroadcastDisabled = true;
